@@ -1,11 +1,13 @@
-import Auth from "./components/template/Auth";
+import { BrowserRouter} from "react-router-dom";
+import Router from "./Router/Router";
+
 
 function App() {
   return (
-    <>
-      <h2>Book-Shop</h2>
-      <Auth/>
-    </>
+      <BrowserRouter>
+      <Router/>
+      </BrowserRouter>
+   
   );
 }
 
