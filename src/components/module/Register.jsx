@@ -12,7 +12,7 @@ function Register() {
   const submitHandler = async (event) => {
     event.preventDefault();
 
-    if (+password !== +respass) return alert("تکرار رمزعبور صحیح نیست!");
+    if (password !== respass) return alert("تکرار رمزعبور صحیح نیست!");
 
     if (!username || !password || !respass) {
       return alert("لطفا تمامی فیلدها را پر کنید!");
