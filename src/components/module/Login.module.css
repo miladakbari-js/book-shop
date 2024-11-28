@@ -1,9 +1,71 @@
 .container{
     display: flex;
     flex-direction: column;
-    max-width: 500px;
+    max-width:460px;
+    height: 596px;
+    background-color: #fff;
+    margin:200px auto ;
+    border-radius: 40px;
+    border: 1px solid #E4E4E4;
 }
-.container img{
-    width: 80px;
-    height: 80px;
+.head{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
 }
+.option{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: auto;
+    align-items:center;
+}
+.option input{
+   width: 400px;
+   height: 53px;
+   border-radius: 15px;
+   border: none;
+   background-color: #F2F2F2;
+   padding: 0 10px;
+   margin: 20px 0 0;
+   font-size: 1rem;
+   color: gray;
+}
+.option input:focus{
+    outline: none;
+}
+.option button{
+    width: 420px;
+    padding: 20px;
+    border-radius: 15px;
+    border: none;
+    background-color: #F21055;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: all 0.2s ease-in-out;
+}
+.option button:hover{
+    background-color: #F2F2F2;
+    color: #F21055;
+}
+.account{
+    margin-right: 20px;
+}
+.account a{
+    color: #F21055;
+    font-size: 1rem;
+    font-weight: 500;
+}
+@media (max-width : 400px){
+    .option button{
+        width: fit-content;
+    }
+    .option input{
+        width: fit-content;
+    }
+}
+

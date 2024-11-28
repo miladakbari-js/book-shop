@@ -3,6 +3,7 @@ import union from "../../images/union.png";
 import styles from "./Register.module.css";
 import { sendRegister } from "../../services/auth";
 import { Link } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 function Register() {
   const [username, setUserName] = useState("");
@@ -11,16 +12,17 @@ function Register() {
 
   const submitHandler = async (event) => {
     event.preventDefault();
+    
 
     if (password !== respass) return alert("تکرار رمزعبور صحیح نیست!");
 
     if (!username || !password || !respass) {
-      return alert("لطفا تمامی فیلدها را پر کنید!");
+      return toast.error('لطفا تمامی فیلدها را پر کنید!');
     }
 
     const { response, error } = await sendRegister(username, password);
 
-    console.log({ response });
+    console.log({ response , error});
   };
 
   return (
@@ -28,7 +30,7 @@ function Register() {
       <form className={styles.container} onSubmit={submitHandler}>
         <div className={styles.head}>
           <img src={union} alt="unionIcon" />
-          <h4>فرم ثبت نام</h4>
+          <h3>فرم ثبت نام</h3>
         </div>
         <div className={styles.option}>
           <input
@@ -50,6 +52,7 @@ function Register() {
             <p>حساب کاربری دارید؟</p>
           </Link>
         </div>
+        <Toaster reverseOrder={true}/>
       </form>
     </>
   );

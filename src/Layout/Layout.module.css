@@ -46,6 +46,9 @@
 .left{
     padding: 0 20px;
 }
+.left a{
+    color: #fff;
+}
 .footer{
     display: flex;
     align-items: center;

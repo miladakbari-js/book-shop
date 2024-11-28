@@ -1,0 +1,35 @@
+.container {
+  width: 231px;
+  border: 1px solid #e4e4e4;
+  background-color: #fff;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  margin: 30px auto 0px 30px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+}
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+.head img {
+  width: 128px;
+  height: 140px;
+}
+.shop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.shop p {
+  margin-right: 10px;
+  color: #282828;
+}
+.shop img {
+  width: 22px;
+  height: 22px;
+  margin-left: 10px;
+}

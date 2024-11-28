@@ -1,5 +1,6 @@
 import { VscAccount, VscBook } from "react-icons/vsc";
 import styles from "./Layout.module.css";
+import { Link } from "react-router-dom";
 
 function Layout({ children }) {
   return (
@@ -16,7 +17,9 @@ function Layout({ children }) {
           <h2>پروژه کتابخانه</h2>
         </div>
         <div className={styles.left}>
+          <Link to="/auth">
           <VscAccount fontSize="1.5rem" />
+          </Link>
         </div>
       </header>
       <div className={styles.container}>{children}</div>
