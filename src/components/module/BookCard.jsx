@@ -3,7 +3,7 @@ import shopping_cart from "../../images/shopping-cart.png";
 import styles from "./BookCard.module.css";
 
 function BookCard({ book }) {
-  console.log(book);
+  
   return (
     <div className={styles.container}>
       <div className={styles.head}>
