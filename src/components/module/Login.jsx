@@ -2,22 +2,36 @@ import styles from "./Login.module.css";
 import union from "../../images/union.png";
 import { useState } from "react";
 import { sendLogin } from "../../services/auth";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+import { getCooKie, setCookie } from "../../utils/setCookie";
 
 function Login() {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
+
   const submitHandler = async (event) => {
     event.preventDefault();
     console.log({ username, password });
     if (!username.length || !password.length)
-      return toast.error("لطفا نام کاربری و رمز عبور را وارد نمایید!")
+      return toast.error("لطفا نام کاربری و رمز عبور را وارد نمایید!");
 
     const { response, error } = await sendLogin(username, password);
 
-    if (response) console.log({ response, error });
+    if (response.status === 200) {
+      
+      setCookie(response.data.token) 
+      navigate("/")
+      return toast.success(`${username} عزیز شما با موفقیت وارد شدید `);
+    }
+    if (response.data.message === "Invalid credentials")
+      return toast.error(
+        `کاربر تعریف نشده است \n برای ورود حساب کاربری ایجاد کنید`
+      );
+    if (response.status === 400) return toast.error("خطایی رخ داده است");
+    
   };
   return (
     <form className={styles.container} onSubmit={submitHandler}>
@@ -41,7 +55,7 @@ function Login() {
           <p>ایجاد حساب کاربری!</p>
         </Link>
       </div>
-      <Toaster reverseOrder={true}/>
+      <Toaster reverseOrder={true} />
     </form>
   );
 }

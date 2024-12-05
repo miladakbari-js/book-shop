@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    margin: auto;
+    align-items: center;
+}
+.container span{
+    border: 1px solid #8D8D8D80;
+    width: 20px;
+    height: 20px;
+    border-radius: 42px;
+    margin: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+}
+.unselected{
+    background-color:#F2F2F2;
+    color: #8D8D8D80;
+}
+.selected{
+    background-color: #F21055;
+    color: #fff;
+}

@@ -12,17 +12,27 @@ function Register() {
 
   const submitHandler = async (event) => {
     event.preventDefault();
-    
 
     if (password !== respass) return alert("تکرار رمزعبور صحیح نیست!");
 
     if (!username || !password || !respass) {
-      return toast.error('لطفا تمامی فیلدها را پر کنید!');
+      return toast.error("لطفا تمامی فیلدها را پر کنید!");
     }
 
     const { response, error } = await sendRegister(username, password);
 
-    console.log({ response , error});
+    if (response.status === 201) {
+      console.log(response);
+      
+      return toast.success("ثبت نام انجام شد.");}
+    if (
+      response.status === 400 &&
+      response.data.message === "User already exists"
+    )
+      return toast.error("نام کاربری تکراری است");
+    if (response.status === 400) return toast.error(`خطایی رخ داده است !!!`);
+
+    console.log({ response, error });
   };
 
   return (
@@ -52,7 +62,7 @@ function Register() {
             <p>حساب کاربری دارید؟</p>
           </Link>
         </div>
-        <Toaster reverseOrder={true}/>
+        <Toaster reverseOrder={true} />
       </form>
     </>
   );
